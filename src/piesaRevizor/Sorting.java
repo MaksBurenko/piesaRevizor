@@ -28,16 +28,12 @@ public class Sorting {
         for (int i = 1;i < textLines.length;i++) { //перебираем массив текста произведения
             for (String temp : manRoles.keySet()) {  //перебираем ключи коллекции
                 if (textLines[i].startsWith(temp)) { //ищем совпадение с началом имеющейся строки
-                    Pattern pattern = Pattern.compile(temp);        //если таково имеется
-                    Matcher matcher = pattern.matcher(textLines[i]);//ищем
-                    while (matcher.find()) {                        //совпадение в строке
-                        matcher.replaceFirst(i + ")");            //заменяем его на порядковый номер и скобочку
-                    }
-                    (manRoles.get(temp)).add (temp + "\n");         //берем нужную коллекцию (с которой совпал текст)
-                                                                    // добавляем уже измененный текст
+
+                    (manRoles.get(temp)).add(textLines[i].replaceFirst((temp + ":"), (i + ")")) + "\n");
                 }
             }
         }
-        System.out.println(manRoles);
+        Collection<List<String>> result = manRoles.values();
+        System.out.println(result);
     }
 }
