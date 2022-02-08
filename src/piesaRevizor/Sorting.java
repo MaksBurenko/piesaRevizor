@@ -20,20 +20,24 @@ public class Sorting {
         NavigableMap <String, List<String>> manRoles = new TreeMap();
         // заполняем MAP данными из массива roles, где ключ - имя, значение - коллекция List
         for (String temp : roles) {
-            manRoles.put(temp, new ArrayList());
+            manRoles.put(temp + ":", new ArrayList());
             (manRoles.get(temp)).add (temp + ":" + "\n"); // ввод строки "Имя Отчество:"
-                                                          // перед тем как начать заполнение коллекции
         }
-
-        for (int i = 1;i < textLines.length;i++) { //перебираем массив текста произведения
+        for (int i = 0;i < textLines.length;i++) { //перебираем массив текста произведения
             for (String temp : manRoles.keySet()) {  //перебираем ключи коллекции
                 if (textLines[i].startsWith(temp)) { //ищем совпадение с началом имеющейся строки
-
-                    (manRoles.get(temp)).add(textLines[i].replaceFirst((temp + ":"), (i + ")")) + "\n");
+                    (manRoles.get(temp)).add(textLines[i].replaceFirst((temp), ((i+1) + ")")) + "\n");
                 }
+
             }
+
         }
         Collection<List<String>> result = manRoles.values();
         System.out.println(result);
     }
 }
+
+
+/*  String str = "Java";
+    StringBuilder strBuilder = new StringBuilder(str);
+    System.out.println(strBuffer.toString()); // Java*/
