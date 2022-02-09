@@ -28,9 +28,7 @@ public class Sorting {
                 if (textLines[i].startsWith(temp)) { //ищем совпадение с началом имеющейся строки
                     (manRoles.get(temp)).add(textLines[i].replaceFirst((temp), ((i+1) + ")")) + "\n");
                 }
-
             }
-
         }
         for (int i = 0;i < roles.length;i++) {
             for (String temp : manRoles.keySet()) {
