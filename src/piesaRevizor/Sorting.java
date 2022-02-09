@@ -30,15 +30,17 @@ public class Sorting {
                 }
             }
         }
+        StringBuilder str = new StringBuilder();
         for (int i = 0;i < roles.length;i++) {
-            for (String temp : manRoles.keySet()) {
-                if ((roles[i] + ":").startsWith(temp)) {
-                    StringBuilder str = new StringBuilder();
-                    str.append(manRoles.get(temp));
-                    System.out.println(str);
+            for (String z : manRoles.keySet()) {
+                if ((roles[i] + ":").startsWith(z)) {
+                    for (List<String> j : manRoles.values()) {
+                        str.append(j);
+                    }
                 }
             }
         }
+        System.out.println(str);
     }
 }
 
