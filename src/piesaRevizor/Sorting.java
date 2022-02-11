@@ -32,11 +32,10 @@ public class Sorting {
         }
         StringBuilder str = new StringBuilder();
         for (int i = 0;i < roles.length;i++) {
-            for (String z : manRoles.keySet()) {
-                if ((roles[i] + ":").startsWith(z)) {
-                    for (List<String> j : manRoles.values()) {
-                        str.append(j);
-                    }
+            for (String temp : manRoles.keySet()) {
+                ArrayList al = new ArrayList(manRoles.get(temp));
+                for (String l: al) {
+                    str.append(l);
                 }
             }
         }
@@ -44,7 +43,14 @@ public class Sorting {
     }
 }
 
-
+   /*     for (int i = 0;i < roles.length;i++) {
+        for (String z : manRoles.keySet()) {
+        if ((roles[i] + ":").startsWith(z)) {
+        Collection <List <String>> j = manRoles.values();
+        str.append(j);
+        }
+        }
+        }
 /*  String str = "Java";
     StringBuilder strBuilder = new StringBuilder(str);
     System.out.println(strBuffer.toString()); // Java*/
