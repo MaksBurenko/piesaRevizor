@@ -27,19 +27,32 @@ public class Sorting {
             for (String temp : manRoles.keySet()) {  //перебираем ключи коллекции
                 if (textLines[i].startsWith(temp)) { //ищем совпадение с началом имеющейся строки
                     (manRoles.get(temp)).add(textLines[i].replaceFirst((temp), ((i+1) + ")")) + "\n");
+                   /* if (i == (textLines.length - 1)) {
+                        break;
+                    } else {
+                        (manRoles.get(temp)).add("\n");
+                    }*/
                 }
             }
         }
         StringBuilder str = new StringBuilder();
         for (int i = 0;i < roles.length;i++) {
             for (String temp : manRoles.keySet()) {
-                ArrayList al = new ArrayList(manRoles.get(temp));
-                for (String l: al) {
-                    str.append(l);
+                if (temp.startsWith(roles[i])) {
+                   List <String > al = manRoles.get(temp);
+                   for (String l: al) {
+                     str.append(l);
+                   }
+                   if (i == (roles.length - 1)) {
+                       break;
+                   } else {
+                       str.append("\n");
+                   }
                 }
             }
         }
         System.out.println(str);
+  //      System.out.println("*");
     }
 }
 
